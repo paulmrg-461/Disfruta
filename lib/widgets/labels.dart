@@ -4,12 +4,14 @@ class Labels extends StatelessWidget {
   final String route;
   final String actionText;
   final String text;
+  final Color textColor;
 
   const Labels(
       {Key key,
       @required this.route,
       @required this.actionText,
-      @required this.text})
+      @required this.text,
+      this.textColor = Colors.blue})
       : super(key: key);
 
   @override
@@ -32,7 +34,7 @@ class Labels extends StatelessWidget {
             child: Text(
               this.actionText,
               style: TextStyle(
-                  color: Colors.blue[600],
+                  color: textColor,
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold),
             ),

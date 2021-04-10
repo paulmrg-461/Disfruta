@@ -9,11 +9,32 @@ class GradientWaveHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height,
       width: double.infinity,
-      //color: Color(0xff615AAB),
-      child: CustomPaint(
-        painter: _GradientWaveHeaderPainter(),
+      height: height,
+      child: Stack(
+        children: [
+          Container(
+            height: height,
+            width: double.infinity,
+            //color: Color(0xff615AAB),
+            child: CustomPaint(
+              painter: _GradientWaveHeaderPainter(),
+            ),
+          ),
+          Center(
+            child: Container(
+              width: 150,
+              height: 150,
+              margin: EdgeInsets.only(bottom: 30),
+              decoration: BoxDecoration(boxShadow: [
+                BoxShadow(
+                    color: Colors.black54,
+                    blurRadius: 10,
+                    offset: Offset(0.7, 0.7))
+              ], borderRadius: BorderRadius.circular(26), color: Colors.white),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -35,8 +56,8 @@ class _GradientWaveHeaderPainter extends CustomPainter {
         ],
         stops: [
           0.0,
-          0.5,
-          1.0
+          0.6,
+          0.9
         ]);
 
     final paint = Paint()..shader = gradient.createShader(rect);

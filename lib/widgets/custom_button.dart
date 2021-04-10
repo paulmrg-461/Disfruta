@@ -18,22 +18,38 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: this.onPressed,
-      style: ElevatedButton.styleFrom(
-        primary: buttonColor,
-        onPrimary: textColor,
-        onSurface: Colors.grey,
-        shape: StadiumBorder(),
-      ),
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 46, vertical: 14),
-        child: Text(
-          this.textButton,
-          style: TextStyle(
-              fontSize: this.fontSize,
-              color: this.textColor,
-              fontWeight: FontWeight.bold),
+    return Container(
+      child: ElevatedButton(
+        onPressed: this.onPressed,
+        style: ElevatedButton.styleFrom(
+          /* primary: buttonColor,
+          onPrimary: textColor,
+          onSurface: Colors.grey, */
+          padding: EdgeInsets.all(0),
+          shape: StadiumBorder(),
+        ),
+        child: Ink(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(colors: [
+                Color(0xffC012FF),
+                Color(0xff6D05E8),
+                Color(0xff6D05FA),
+              ], stops: [
+                0.0,
+                0.5,
+                1.0
+              ]),
+              borderRadius: BorderRadius.circular(28.0)),
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 54, vertical: 14),
+            child: Text(
+              this.textButton,
+              style: TextStyle(
+                  fontSize: this.fontSize,
+                  color: this.textColor,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
         ),
       ),
     );

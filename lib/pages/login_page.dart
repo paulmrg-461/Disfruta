@@ -17,29 +17,49 @@ class LoginPage extends StatelessWidget {
               child: Stack(
                 children: [
                   Align(
-                    alignment: Alignment(1.6, 1.4),
+                    alignment: Alignment(1.5, 1.3),
                     child: Container(
-                      height: MediaQuery.of(context).size.height * 0.25,
-                      width: MediaQuery.of(context).size.height * 0.25,
+                      height: MediaQuery.of(context).size.height * 0.225,
+                      width: MediaQuery.of(context).size.height * 0.225,
                       decoration: BoxDecoration(
-                          color: Colors.blue, shape: BoxShape.circle),
+                          gradient: LinearGradient(
+                            colors: [
+                              Color(0xffC012FF),
+                              Color(0xff6D05E8),
+                              Color(0xff6D05FA),
+                            ],
+                            begin: Alignment(-0.6, -0.6),
+                            end: Alignment(0.25, 0.25),
+                          ),
+                          shape: BoxShape.circle),
                     ),
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      GradientWaveHeader(
-                        height: MediaQuery.of(context).size.height * 0.3,
+                      Stack(
+                        children: [
+                          GradientWaveHeader(
+                            height: MediaQuery.of(context).size.height * 0.375,
+                          ),
+                        ],
                       ),
-                      _Form(),
+                      Padding(
+                          padding: EdgeInsets.only(top: 26), child: _Form()),
                       Labels(
-                          route: 'register',
-                          actionText: 'Regístrate',
-                          text: '¿Eres nuevo?'),
-                      Text(
-                        'Terms and conditions',
-                        style: TextStyle(
-                            color: Colors.black54, fontWeight: FontWeight.w200),
+                        route: 'register',
+                        actionText: 'Regístrate',
+                        text: '¿Eres nuevo?',
+                        textColor: Color(0xff6D05E8),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 36.0),
+                        child: Text(
+                          'Terms and conditions',
+                          style: TextStyle(
+                              color: Colors.black54,
+                              fontWeight: FontWeight.w200),
+                        ),
                       )
                     ],
                   ),
