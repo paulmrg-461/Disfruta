@@ -23,15 +23,36 @@ class GradientWaveHeader extends StatelessWidget {
           ),
           Center(
             child: Container(
-              width: 150,
-              height: 150,
-              margin: EdgeInsets.only(bottom: 30),
+              width: this.height * 0.55,
+              height: this.height * 0.55,
+              margin: EdgeInsets.only(bottom: 25),
               decoration: BoxDecoration(boxShadow: [
                 BoxShadow(
                     color: Colors.black54,
-                    blurRadius: 10,
+                    blurRadius: 5,
                     offset: Offset(0.7, 0.7))
               ], borderRadius: BorderRadius.circular(26), color: Colors.white),
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Image(
+                          height: this.height * 0.35,
+                          fit: BoxFit.cover,
+                          image: AssetImage('assets/mango.png')),
+                      Text(
+                        'Disfruta',
+                        style: TextStyle(
+                            color: Color(0xff6D05E8),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 28),
+                      )
+                    ],
+                  ),
+                ),
+              ),
             ),
           ),
         ],

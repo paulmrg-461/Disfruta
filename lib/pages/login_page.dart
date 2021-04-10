@@ -17,7 +17,7 @@ class LoginPage extends StatelessWidget {
               child: Stack(
                 children: [
                   Align(
-                    alignment: Alignment(1.5, 1.3),
+                    alignment: Alignment(1.6, 1.4),
                     child: Container(
                       height: MediaQuery.of(context).size.height * 0.225,
                       width: MediaQuery.of(context).size.height * 0.225,
@@ -101,6 +101,7 @@ class __FormState extends State<_Form> {
             hintText: 'Contraseña',
             icon: Icons.lock_outline,
             textInputType: TextInputType.text,
+            suffixIcon: Icons.visibility,
             obscureText: true,
           ),
           Padding(

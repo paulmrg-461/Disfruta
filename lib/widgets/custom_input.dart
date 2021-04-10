@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class CustomInput extends StatelessWidget {
+class CustomInput extends StatefulWidget {
   final String hintText;
   final TextEditingController textController;
   final IconData icon;
   final IconData suffixIcon;
   final TextInputType textInputType;
-  final bool obscureText;
+  bool obscureText;
   final TextCapitalization textCapitalization;
 
   CustomInput(
@@ -21,10 +21,15 @@ class CustomInput extends StatelessWidget {
       : super(key: key);
 
   @override
+  _CustomInputState createState() => _CustomInputState();
+}
+
+class _CustomInputState extends State<CustomInput> {
+  @override
   Widget build(BuildContext context) {
     return Container(
         margin: EdgeInsets.only(bottom: 18),
-        padding: EdgeInsets.only(top: 6, left: 6, right: 18),
+        padding: EdgeInsets.only(left: 6, right: 12),
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(30.0),
@@ -35,17 +40,23 @@ class CustomInput extends StatelessWidget {
                   blurRadius: 5)
             ]),
         child: TextField(
-          controller: this.textController,
+          controller: this.widget.textController,
           autocorrect: false,
-          keyboardType: this.textInputType,
-          obscureText: this.obscureText,
-          textCapitalization: this.textCapitalization,
+          keyboardType: this.widget.textInputType,
+          obscureText: this.widget.obscureText,
+          textCapitalization: this.widget.textCapitalization,
           decoration: InputDecoration(
-              prefixIcon: Icon(this.icon),
-              suffixIcon: Icon(this.suffixIcon),
-              focusedBorder: InputBorder.none,
-              border: InputBorder.none,
-              hintText: this.hintText),
+            prefixIcon: Icon(this.widget.icon),
+            suffixIcon: IconButton(
+                onPressed: () => this.setState(() {
+                      this.widget.obscureText = !this.widget.obscureText;
+                    }),
+                icon: Icon(this.widget.suffixIcon)),
+            focusedBorder: InputBorder.none,
+            enabledBorder: InputBorder.none,
+            border: InputBorder.none,
+            labelText: this.widget.hintText,
+          ),
         ));
   }
 }
