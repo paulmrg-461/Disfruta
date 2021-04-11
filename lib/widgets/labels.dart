@@ -30,7 +30,7 @@ class Labels extends StatelessWidget {
             height: 8.0,
           ),
           GestureDetector(
-            onTap: () => Navigator.pushReplacementNamed(context, this.route),
+            onTap: () => Navigator.pushNamed(context, this.route),
             child: Text(
               this.actionText,
               style: TextStyle(
