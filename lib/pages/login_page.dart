@@ -107,7 +107,9 @@ class __FormState extends State<_Form> {
           Padding(
             padding: const EdgeInsets.only(top: 12),
             child: CustomButton(
-                onPressed: () => print('Login'), textButton: 'Iniciar sesión'),
+                onPressed: () =>
+                    Navigator.pushReplacementNamed(context, 'home'),
+                textButton: 'Iniciar sesión'),
           )
         ],
       ),
