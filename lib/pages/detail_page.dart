@@ -14,7 +14,7 @@ class DetailPage extends StatelessWidget {
           children: [
             Container(
               width: double.infinity,
-              margin: EdgeInsets.only(top: 18, left: 18, right: 18),
+              margin: EdgeInsets.only(top: 18, left: 8, right: 18),
               child: Stack(
                 children: [
                   Row(
@@ -26,7 +26,7 @@ class DetailPage extends StatelessWidget {
                             size: 36,
                             color: Colors.black54,
                           ),
-                          onPressed: () {}),
+                          onPressed: () => Navigator.pop(context)),
                       Container(
                         decoration: BoxDecoration(
                             border:
