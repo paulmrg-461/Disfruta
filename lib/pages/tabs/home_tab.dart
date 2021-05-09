@@ -1,4 +1,5 @@
 import 'package:disfruta/widgets/custom_headers.dart';
+import 'package:disfruta/widgets/product_item_card.dart';
 import 'package:flutter/material.dart';
 
 class HomeTab extends StatelessWidget {
@@ -25,6 +26,7 @@ class _MainScroll extends StatelessWidget {
     final double maxHeight = MediaQuery.of(context).size.height * 0.275;
     final double minHeight = MediaQuery.of(context).size.height * 0.24;
     return CustomScrollView(
+      physics: BouncingScrollPhysics(),
       slivers: <Widget>[
         SliverPersistentHeader(
           floating: true,
@@ -41,14 +43,31 @@ class _MainScroll extends StatelessWidget {
                 fontSize: 42.0,
               )),
         ),
-        SliverList(
+        SliverPadding(
+          padding: EdgeInsets.all(12),
+          sliver: SliverGrid(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 12.0,
+              crossAxisSpacing: 12.0,
+              childAspectRatio: 0.7,
+            ),
+            delegate: SliverChildBuilderDelegate(
+              (BuildContext context, int index) {
+                return ProductItemCard();
+              },
+              childCount: 10,
+            ),
+          ),
+        )
+        /* SliverList(
           delegate: SliverChildListDelegate([
             ...items,
             SizedBox(
-              height: 100.0,
+              height: 60.0,
             )
           ]),
-        )
+        ) */
       ],
     );
   }
@@ -112,7 +131,7 @@ class _ListItem extends StatelessWidget {
             fontSize: 22.0, color: Colors.white, fontWeight: FontWeight.bold),
       ),
       height: 130,
-      margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      margin: EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
       padding: EdgeInsets.all(22.0),
       decoration: BoxDecoration(
           color: this.color, borderRadius: BorderRadius.circular(22.0)),

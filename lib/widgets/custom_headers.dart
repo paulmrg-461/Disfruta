@@ -139,54 +139,49 @@ class GradientHeader extends StatelessWidget {
               begin: Alignment(0.1, -1.5),
               stops: [0.0, 0.6, 1.0]),
         ),
-        child: SafeArea(
-            child: Padding(
+        child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
-          child: Container(
-            width: double.infinity,
-            height: this.headerHeight,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(
-                  this.title,
-                  style: TextStyle(
-                      letterSpacing: 1,
-                      fontSize: this.fontSize,
-                      color: this.fontColor,
-                      fontWeight: FontWeight.w900),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text(
+                this.title,
+                style: TextStyle(
+                    letterSpacing: 1,
+                    fontSize: this.fontSize,
+                    color: this.fontColor,
+                    fontWeight: FontWeight.w900),
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 16),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.9),
+                    borderRadius: BorderRadius.circular(14)),
+                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.search,
+                      color: Colors.black45,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      'Buscar',
+                      style: TextStyle(
+                          fontSize: 16,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black38),
+                    )
+                  ],
                 ),
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 16),
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.9),
-                      borderRadius: BorderRadius.circular(14)),
-                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.search,
-                        color: Colors.black45,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        'Buscar',
-                        style: TextStyle(
-                            fontSize: 16,
-                            letterSpacing: 1,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.black38),
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
+              )
+            ],
           ),
-        )));
+        ));
   }
 }
