@@ -22,7 +22,7 @@ class DetailPage extends StatelessWidget {
                     children: [
                       IconButton(
                           icon: Icon(
-                            Icons.chevron_left,
+                            Icons.arrow_back,
                             size: 36,
                             color: Colors.black54,
                           ),

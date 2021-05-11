@@ -27,12 +27,12 @@ class HomePage extends StatelessWidget {
                 break;
               case 1:
                 return CupertinoTabView(
-                  builder: (BuildContext context) => CartTab(),
+                  builder: (BuildContext context) => FavoritesTab(),
                 );
                 break;
               case 2:
                 return CupertinoTabView(
-                  builder: (BuildContext context) => FavoritesTab(),
+                  builder: (BuildContext context) => CartTab(),
                 );
                 break;
               case 3:
